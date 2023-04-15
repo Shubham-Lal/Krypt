@@ -69,6 +69,7 @@ body {
 
 /* white glassmorphism alt */
 .white-glassmorphism-alt {
+    z-index: 99;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 0 0 16px 16px;
     backdrop-filter: blur(5px);

@@ -1,4 +1,4 @@
-import { Navbar, Welcome, Services, Transactions, Footer, Loader } from "./components";
+import { Navbar, Welcome, Services, Transactions, Footer } from "./components";
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
       <Footer />
 
       <Toaster
+        position="bottom-center"
         toastOptions={{
           duration: 5000
         }}
