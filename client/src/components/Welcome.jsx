@@ -1,18 +1,15 @@
-import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
-import { Loader } from "./";
 import SkewLoader from "react-spinners/SkewLoader";
 import { useState } from "react";
+import { TransactionContext } from "../context/TransactionContext";
+import { useContext } from "react";
 
+const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Welcome = () => {
-  const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
   const [isLoading, setIsLoading] = useState(false);
-
-  const connectWallet = () => {
-
-  };
 
   const Input = ({ placeholder, name, type, value, handleChange }) => (
     <input
@@ -32,7 +29,8 @@ const Welcome = () => {
 
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4 mt-20">
+      {/* <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4"> */}
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-white text-3xl sm:text-5xl text-gradient py-1">
             Send Crypto <br />
@@ -41,12 +39,20 @@ const Welcome = () => {
           <p className="text-white text-left text-base mt-5 font-light md:w-9/12 w-11/12">
             Explore the crypto world. Buy & Sell cryptocurrency easily on Krypto.
           </p>
-          <button
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952E3] p-3 rounded-full cursor-pointer hover:bg-[#2546BD]"
-          >
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-          </button>
+          {!currentAccount ? (
+            <button
+              onClick={connectWallet}
+              className="flex flex-row justify-center items-center my-5 bg-[#2952E3] p-3 rounded-full cursor-pointer hover:bg-[#2546BD]"
+            >
+              <p className="text-white text-base font-semibold">Connect Wallet</p>
+            </button>
+          ) : (
+            <div
+              className="flex flex-row justify-center items-center my-5 bg-[#2952E3] text-white blue-glassmorphism p-3 rounded-full select-none"
+            >
+              Account Connected
+            </div>
+          )}
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${commonStyles}`}>
               Reliability

@@ -1,21 +1,20 @@
-import { HiMenuAlt4 } from "react-icons/hi";
-import { AiOutlineClose } from "react-icons/ai";
 import Logo from "../../images/logo.png";
 import { useState } from "react";
 
-const NavbarItem = ({ title, classProps }) => {
-  return (
-    <li className={`mx-4 cursor-pointer ${classProps}`}>
-      {title}
-    </li>
-  )
-}
+// const NavbarItem = ({ title, classProps }) => {
+//   return (
+//     <li className={`mx-4 cursor-pointer ${classProps}`}>
+//       {title}
+//     </li>
+//   )
+// }
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4">
+    <nav className="fixed top-0 left-0 w-full flex md:justify-center justify-between items-center p-4 white-glassmorphism-alt">
+    {/* <nav className="w-full flex md:justify-center justify-between items-center p-4 white-glassmorphism-alt"> */}
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <img
           src={Logo}
@@ -23,7 +22,7 @@ const Navbar = () => {
           alt="logo"
         />
       </div>
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
+      {/*<ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
           <NavbarItem title={item} key={item + index} />
         ))}
@@ -48,7 +47,7 @@ const Navbar = () => {
             ))}
           </ul>
         )}
-      </div>
+      </div>*/}
     </nav>
   )
 }
