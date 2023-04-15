@@ -13,7 +13,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex md:justify-center justify-between items-center p-4 white-glassmorphism-alt">
+    <nav className="fixed top-0 left-0 w-full h-fit flex md:justify-center justify-between items-center p-4 white-glassmorphism-alt">
     {/* <nav className="w-full flex md:justify-center justify-between items-center p-4 white-glassmorphism-alt"> */}
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <img

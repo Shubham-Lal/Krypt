@@ -87,10 +87,10 @@ export const TransactionProvider = ({ children }) => {
             const transactionHash = await transactionContract.addToBlockchain(addressTo, convertedAmount, keyword, message);
 
             setIsLoading(true);
-            console.log(`Loading - ${transactionHash.hash}`);
+            // console.log(`Loading - ${transactionHash.hash}`);
             await transactionHash.wait();
             setIsLoading(false);
-            console.log(`Success - ${transactionHash.hash}`);
+            // console.log(`Success - ${transactionHash.hash}`);
 
             const transactionCount = await transactionContract.getTransactionsCount();
             setTransactionCount(transactionCount.toNumber());

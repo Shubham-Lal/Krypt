@@ -1,7 +1,7 @@
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import SkewLoader from "react-spinners/SkewLoader";
-import { useState } from "react";
+import { useEffect } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
@@ -21,20 +21,6 @@ const Welcome = () => {
   } = useContext(TransactionContext);
   const { addressTo, amount, keyword, message } = formData;
 
-  // const Input = ({ placeholder, name, type, value, handleChange }) => {
-  //   return (
-  //     <input
-  //       placeholder={placeholder}
-  //       name={name}
-  //       value={value}
-  //       type={type}
-  //       onChange={(e) => handleChange(e, name)}
-  //       step="0.0001"
-  //       className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
-  //     />
-  //   )
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!addressTo || !amount || !keyword || !message) {
@@ -43,10 +29,17 @@ const Welcome = () => {
     sendTransaction();
   };
 
+  useEffect(() => {
+    if (sendSuccess) {
+      setTimeout(() => {
+        setSendSuccess(false);
+      }, 5000);
+    }
+  }, [sendSuccess]);
+
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4 mt-20">
-        {/* <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4"> */}
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-white text-3xl sm:text-5xl text-gradient py-1">
             Send Crypto <br />
@@ -110,10 +103,6 @@ const Welcome = () => {
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-            {/* <Input placeholder="Address To" name="addressTo" value={addressTo} type="text" handleChange={handleFormChange} />
-            <Input placeholder="Amount (ETH)" name="amount" value={amount} type="number" handleChange={handleFormChange} />
-            <Input placeholder="Keyword (Gif)" name="keyword" value={keyword} type="text" handleChange={handleFormChange} />
-            <Input placeholder="Enter Message" name="message" value={message} type="text" handleChange={handleFormChange} /> */}
             <input placeholder="Address To" value={addressTo} type="text" onChange={(e) => handleFormChange(e, "addressTo")}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />

@@ -9,8 +9,8 @@ const App = () => {
         <Welcome />
       </div>
       <Services />
-      <Transactions />
-      <Footer />
+      {/* <Transactions />
+      <Footer /> */}
 
       <Toaster
         position="bottom-center"
