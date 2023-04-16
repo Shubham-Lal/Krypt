@@ -23,7 +23,7 @@ const Welcome = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!addressTo || !amount || !keyword || !message) {
+    if (!addressTo || !amount || !keyword) {
       return toast.error("Please fill in the details to initiate the transaction!");
     }
     sendTransaction();
@@ -93,8 +93,8 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">
-                  Address
+                <p className="text-white font-light text-sm break-all">
+                  {currentAccount}
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
@@ -103,13 +103,13 @@ const Welcome = () => {
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-            <input placeholder="Address To" value={addressTo} type="text" onChange={(e) => handleFormChange(e, "addressTo")}
+            <input placeholder="*Address To" value={addressTo} type="text" onChange={(e) => handleFormChange(e, "addressTo")}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />
-            <input placeholder="Amount (ETH)" value={amount} type="number" step="0.0001" onChange={(e) => handleFormChange(e, "amount")}
+            <input placeholder="*Amount (ETH)" value={amount} type="number" step="0.0001" onChange={(e) => handleFormChange(e, "amount")}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />
-            <input placeholder="Keyword (Gif)" value={keyword} type="text" onChange={(e) => handleFormChange(e, "keyword")}
+            <input placeholder="*Keyword (Gif)" value={keyword} type="text" onChange={(e) => handleFormChange(e, "keyword")}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />
             <input placeholder="Enter Message" value={message} type="text" onChange={(e) => handleFormChange(e, "message")}
@@ -117,7 +117,6 @@ const Welcome = () => {
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             {isLoading ? (
-              // <Loader />
               <SkewLoader
                 color="green"
                 size={45}
