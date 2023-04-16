@@ -118,7 +118,7 @@ const Welcome = () => {
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             {isLoading ? (
               <SkewLoader
-                color="green"
+                color="white"
                 size={45}
                 aria-label="Loading Spinner"
                 data-testid="loader"
