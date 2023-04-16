@@ -10,7 +10,7 @@ const App = () => {
       </div>
       <Services />
       <Transactions />
-      {/* <Footer /> */}
+      <Footer />
 
       <Toaster
         position="bottom-center"
